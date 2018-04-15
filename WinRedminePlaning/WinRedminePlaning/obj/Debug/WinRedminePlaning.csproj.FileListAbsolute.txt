@@ -1,0 +1,11 @@
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\bin\Debug\WinRedminePlaning.exe.config
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\obj\Debug\WinRedminePlaning.csprojResolveAssemblyReference.cache
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\obj\Debug\WinRedminePlaning.Properties.Resources.resources
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\obj\Debug\WinRedminePlaning.csproj.GenerateResource.Cache
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\bin\Debug\WinRedminePlaning.exe
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\bin\Debug\WinRedminePlaning.pdb
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\obj\Debug\WinRedminePlaning.exe
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\obj\Debug\WinRedminePlaning.pdb
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\bin\Debug\redmine-net451-api.dll
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\bin\Debug\redmine-net451-api.xml
+D:\Project C#\WinRedminePlaning\WinRedminePlaning\obj\Debug\WinRedminePlaning.Main.resources
