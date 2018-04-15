@@ -1,2 +1,2 @@
 # hello-world
-This is my first try to create the repository and learn how to use it.
+This repository is using for learning C# from diffrent sources
