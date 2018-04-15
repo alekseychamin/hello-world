@@ -12,3 +12,17 @@ D:\Project C#\Learing\WpfApplication1\WpfApplication1\obj\Debug\Save the Humans.
 D:\Project C#\Learing\WpfApplication1\WpfApplication1\obj\Debug\Save the Humans.exe
 D:\Project C#\Learing\WpfApplication1\WpfApplication1\obj\Debug\Save the Humans.pdb
 D:\Project C#\Learing\WpfApplication1\WpfApplication1\obj\Debug\Save the Humans.csprojResolveAssemblyReference.cache
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\bin\Debug\Save the Humans.exe.config
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans.exe
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans.pdb
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\bin\Debug\Save the Humans.exe
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\bin\Debug\Save the Humans.pdb
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans.csprojResolveAssemblyReference.cache
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\MainWindow.g.cs
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\App.g.cs
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans_MarkupCompile.cache
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans_MarkupCompile.lref
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\MainWindow.baml
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans.g.resources
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+D:\Project C#\GitHub\learning\Save Humans\WpfApplication1\obj\Debug\Save the Humans.csproj.GenerateResource.Cache
