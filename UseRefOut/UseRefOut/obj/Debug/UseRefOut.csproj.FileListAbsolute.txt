@@ -1,0 +1,6 @@
+D:\Project C#\GitHub\learning\UseRefOut\UseRefOut\bin\Debug\UseRefOut.exe.config
+D:\Project C#\GitHub\learning\UseRefOut\UseRefOut\bin\Debug\UseRefOut.exe
+D:\Project C#\GitHub\learning\UseRefOut\UseRefOut\bin\Debug\UseRefOut.pdb
+D:\Project C#\GitHub\learning\UseRefOut\UseRefOut\obj\Debug\UseRefOut.csprojResolveAssemblyReference.cache
+D:\Project C#\GitHub\learning\UseRefOut\UseRefOut\obj\Debug\UseRefOut.exe
+D:\Project C#\GitHub\learning\UseRefOut\UseRefOut\obj\Debug\UseRefOut.pdb
