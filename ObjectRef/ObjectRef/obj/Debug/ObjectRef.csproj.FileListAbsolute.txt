@@ -1,1 +1,6 @@
 D:\Project C#\GitHub\learning\ObjectRef\ObjectRef\bin\Debug\ObjectRef.exe.config
+D:\Project C#\GitHub\learning\ObjectRef\ObjectRef\bin\Debug\ObjectRef.exe
+D:\Project C#\GitHub\learning\ObjectRef\ObjectRef\bin\Debug\ObjectRef.pdb
+D:\Project C#\GitHub\learning\ObjectRef\ObjectRef\obj\Debug\ObjectRef.csprojResolveAssemblyReference.cache
+D:\Project C#\GitHub\learning\ObjectRef\ObjectRef\obj\Debug\ObjectRef.exe
+D:\Project C#\GitHub\learning\ObjectRef\ObjectRef\obj\Debug\ObjectRef.pdb
