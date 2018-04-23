@@ -8,3 +8,5 @@ Stack/.vs/Stack/v14/.suo
 Stack/Stack.sln
 Stack/Stack/bin/
 Stack/Stack/Stack.csproj
+Stack/Stack/obj/
+Stack/Stack/obj/Debug/Stack.csproj.FileListAbsolute.txt

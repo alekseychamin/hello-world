@@ -1,1 +1,6 @@
 D:\Project C#\GitHub\learning\Stack\Stack\bin\Debug\Stack.exe.config
+D:\Project C#\GitHub\learning\Stack\Stack\bin\Debug\Stack.exe
+D:\Project C#\GitHub\learning\Stack\Stack\bin\Debug\Stack.pdb
+D:\Project C#\GitHub\learning\Stack\Stack\obj\Debug\Stack.csprojResolveAssemblyReference.cache
+D:\Project C#\GitHub\learning\Stack\Stack\obj\Debug\Stack.exe
+D:\Project C#\GitHub\learning\Stack\Stack\obj\Debug\Stack.pdb
