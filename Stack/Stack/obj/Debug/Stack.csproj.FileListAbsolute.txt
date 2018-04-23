@@ -1,0 +1,1 @@
+D:\Project C#\GitHub\learning\Stack\Stack\bin\Debug\Stack.exe.config
