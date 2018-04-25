@@ -93,6 +93,20 @@ namespace Stack
 
         static void Main(string[] args)
         {
+            Stack stk1 = new Stack(1024);
+
+            for (int i = 0; !stk1.IsFull; i++)
+            {
+                stk1.Push((char)('A' + i));
+            }
+
+            while (!stk1.IsEmpty)
+            {
+                char ch = stk1.Pop();
+                Console.WriteLine("El. stack # {0} = {1}", stk1.Index, ch);
+            }
+
+            Console.ReadLine();
 
         }
     }
