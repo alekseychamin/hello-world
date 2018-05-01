@@ -12,7 +12,7 @@ namespace CheckMails
         public string address;
         public string password;
     }
-    class BlackList
+    class BlackAddress
     {
         public string address;
     }
@@ -22,8 +22,8 @@ namespace CheckMails
         int uptime;
         int period;
 
-        public List<Mail> ListMail = new List<Mail>();
-        public List<BlackList> ListBlack = new List<BlackList>();
+        List<Mail> ListMail = new List<Mail>();
+        List<BlackAddress> ListBlack = new List<BlackAddress>();
 
         public int UpTime
         {
