@@ -57,7 +57,18 @@ namespace CheckMails
             // обход всех элементов в корневом элементе
             foreach (XmlNode xnode in xRoot)
             {
-                Console.WriteLine(xnode.Name);
+                if (xnode.Name == "uptime_h")
+                {
+                    uptime = Convert.ToInt32(xnode.InnerText);
+                    Console.WriteLine("uptime_h = {0}", xnode.InnerText);
+                }
+
+                if (xnode.Name == "period_d")
+                {
+                    period = Convert.ToInt32(xnode.InnerText);
+                    Console.WriteLine("period_d = {0}", xnode.InnerText);
+                }
+
             }
 
         }
