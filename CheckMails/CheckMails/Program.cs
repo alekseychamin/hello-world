@@ -10,6 +10,7 @@ namespace CheckMails
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
