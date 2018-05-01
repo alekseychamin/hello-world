@@ -69,6 +69,17 @@ namespace CheckMails
                     Console.WriteLine("period_d = {0}", xnode.InnerText);
                 }
 
+                if (xnode.Name == "listblack")
+                {
+                    foreach (XmlNode childnode in xnode.ChildNodes)
+                    {
+                        if (childnode.Name == "blackaddress")
+                        {
+                            Console.WriteLine("blackaddress = {0}", childnode.InnerText);
+                        }
+                    }
+                }
+
             }
 
         }
