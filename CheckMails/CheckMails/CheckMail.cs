@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace CheckMails
 {
@@ -49,6 +50,15 @@ namespace CheckMails
 
         public void LoadConfig(string filename)
         {
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.Load(filename);
+            XmlElement xRoot = xDoc.DocumentElement; // получение корневого элемента - checkmails
+
+            // обход всех элементов в корневом элементе
+            foreach (XmlNode xnode in xRoot)
+            {
+                Console.WriteLine(xnode.Name);
+            }
 
         }
     }
