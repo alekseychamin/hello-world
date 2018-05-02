@@ -11,6 +11,9 @@ namespace CheckMails
     {
         public string address;
         public string password;
+        public string hostname;
+        public int port;
+        public bool usessl;
     }
     class BlackAddress
     {
@@ -110,6 +113,31 @@ namespace CheckMails
                                 {
                                     mail.password = childmail.InnerText;
                                 }
+                                if (childmail.Name == "hostname")
+                                {
+                                    mail.hostname = childmail.InnerText;
+                                }
+                                if (childmail.Name == "port")
+                                {
+                                    try
+                                    {                                        
+                                        mail.port = Convert.ToInt32(childmail.InnerText);
+                                    }
+                                    catch (FormatException)
+                                    {
+                                        Console.WriteLine("Неверный формат числа port!");
+                                    }                                    
+                                }
+                                if (childmail.Name == "usessl")
+                                {
+                                    string usessl = childmail.InnerText;
+                                    usessl = usessl.ToLower();
+
+                                    if (usessl == "true")
+                                        mail.usessl = true;
+                                    if (usessl == "false")
+                                        mail.usessl = false;
+                                }
                             }
                             ListMail.Add(mail);
                         }
@@ -118,6 +146,11 @@ namespace CheckMails
 
 
             }
+
+        }
+
+        public void ManageMail()
+        {
 
         }
     }
