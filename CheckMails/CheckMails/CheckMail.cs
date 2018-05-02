@@ -35,7 +35,8 @@ namespace CheckMails
             {
                 if (UpTime > 1) uptime = UpTime;               
             }
-        } 
+        }
+
         public int Period
         {
             get
@@ -61,8 +62,7 @@ namespace CheckMails
                 {
                     try
                     {
-                        uptime = Convert.ToInt32(xnode.InnerText);
-                        Console.WriteLine("uptime_h = {0}", xnode.InnerText);
+                        uptime = Convert.ToInt32(xnode.InnerText);                        
                     }
                     catch (FormatException)
                     {
@@ -74,8 +74,7 @@ namespace CheckMails
                 {
                     try
                     {
-                        period = Convert.ToInt32(xnode.InnerText);
-                        Console.WriteLine("period_d = {0}", xnode.InnerText);
+                        period = Convert.ToInt32(xnode.InnerText);                        
                     }
                     catch (FormatException)
                     {
@@ -90,11 +89,33 @@ namespace CheckMails
                         if (childnode.Name == "blackaddress")
                         {
                             BlackAddress blackaddress = new BlackAddress() { address = childnode.InnerText };
-                            ListBlack.Add(blackaddress);
-                            Console.WriteLine("blackaddress = {0}", childnode.InnerText);
+                            ListBlack.Add(blackaddress);                            
                         }
                     }
                 }
+                if (xnode.Name == "listmail")
+                {
+                    foreach (XmlNode childnode in xnode.ChildNodes)
+                    {
+                        if (childnode.Name == "mail")
+                        {
+                            Mail mail = new Mail();                            
+                            foreach (XmlNode childmail in childnode.ChildNodes)
+                            {
+                                if (childmail.Name == "address")
+                                {
+                                    mail.address = childmail.InnerText;
+                                }
+                                if (childmail.Name == "password")
+                                {
+                                    mail.password = childmail.InnerText;
+                                }
+                            }
+                            ListMail.Add(mail);
+                        }
+                    }
+                }
+
 
             }
 
