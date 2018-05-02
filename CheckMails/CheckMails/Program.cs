@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CheckMails
@@ -14,10 +15,13 @@ namespace CheckMails
             CheckMail checkMail = new CheckMail();
             string filename = Directory.GetCurrentDirectory() + "\\" + "setting_checkmail.xml";
             Console.WriteLine(filename);
-            checkMail.LoadConfig(filename);
-            checkMail.ManageMail();
-
-            Console.ReadLine();
+            while (true)
+            {
+                checkMail.LoadConfig(filename);
+                checkMail.ManageMail();
+                Thread.Sleep(checkMail.UpTime * 60 * 60 * 1000);
+            }
+            
         }
     }
 }

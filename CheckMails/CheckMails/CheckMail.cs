@@ -242,8 +242,10 @@ namespace CheckMails
                     if ((IsBlackAddress(mailAddress) || IsMorePeriod(messageHeader.DateSent)) && !IsWhiteAddress(mailAddress))
                     {                       
                         client.DeleteMessage(i);
-                        Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
+                        //Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
                     }
+                    else
+                        //Console.WriteLine("N mail = {0}, from = {1}, date = {2}", i, mailAddress, messageHeader.DateSent.ToString());
 
                     i++;
                 }
