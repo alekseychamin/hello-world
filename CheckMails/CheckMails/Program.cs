@@ -15,6 +15,7 @@ namespace CheckMails
             string filename = Directory.GetCurrentDirectory() + "\\" + "setting_checkmail.xml";
             Console.WriteLine(filename);
             checkMail.LoadConfig(filename);
+            checkMail.ManageMail();
 
             Console.ReadLine();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenPop.Pop3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Xml;
 
 namespace CheckMails
 {
-    class Mail
+    class MailBox
     {
         public string address;
         public string password;
@@ -25,7 +26,7 @@ namespace CheckMails
         int uptime;
         int period;
 
-        List<Mail> ListMail = new List<Mail>();
+        List<MailBox> ListMailBox = new List<MailBox>();
         List<BlackAddress> ListBlack = new List<BlackAddress>();
 
         public int UpTime
@@ -102,7 +103,7 @@ namespace CheckMails
                     {
                         if (childnode.Name == "mail")
                         {
-                            Mail mail = new Mail();                            
+                            MailBox mail = new MailBox();                            
                             foreach (XmlNode childmail in childnode.ChildNodes)
                             {
                                 if (childmail.Name == "address")
@@ -139,7 +140,7 @@ namespace CheckMails
                                         mail.usessl = false;
                                 }
                             }
-                            ListMail.Add(mail);
+                            ListMailBox.Add(mail);
                         }
                     }
                 }
@@ -151,7 +152,17 @@ namespace CheckMails
 
         public void ManageMail()
         {
+            foreach (MailBox mailbox in ListMailBox)
+            {
+                Pop3Client client = new Pop3Client();
 
+                client.Connect(mailbox.hostname, mailbox.port, mailbox.usessl);
+                client.Authenticate(mailbox.address, mailbox.password);
+                Console.WriteLine("In mailbox {0}, Count letters = {1}", mailbox.address, client.GetMessageCount());
+
+                client.Disconnect();
+                client.Dispose();
+            }
         }
     }
 }
