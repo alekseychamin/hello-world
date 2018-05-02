@@ -1,4 +1,5 @@
-﻿using OpenPop.Pop3;
+﻿using OpenPop.Mime.Header;
+using OpenPop.Pop3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace CheckMails
         public int port;
         public bool usessl;
     }
-    class BlackAddress
+    class Address
     {
         public string address;
     }
@@ -27,7 +28,8 @@ namespace CheckMails
         int period;
 
         List<MailBox> ListMailBox = new List<MailBox>();
-        List<BlackAddress> ListBlack = new List<BlackAddress>();
+        List<Address> ListBlack = new List<Address>();
+        List<Address> ListWhite = new List<Address>();
 
         public int UpTime
         {
@@ -86,13 +88,25 @@ namespace CheckMails
                     }
                 }
 
+                if (xnode.Name == "listwhite")
+                {
+                    foreach (XmlNode childnode in xnode.ChildNodes)
+                    {
+                        if (childnode.Name == "whiteaddress")
+                        {
+                            Address whiteaddress = new Address() { address = childnode.InnerText };
+                            ListWhite.Add(whiteaddress);
+                        }
+                    }
+                }
+
                 if (xnode.Name == "listblack")
                 {
                     foreach (XmlNode childnode in xnode.ChildNodes)
                     {
                         if (childnode.Name == "blackaddress")
                         {
-                            BlackAddress blackaddress = new BlackAddress() { address = childnode.InnerText };
+                            Address blackaddress = new Address() { address = childnode.InnerText };
                             ListBlack.Add(blackaddress);                            
                         }
                     }
@@ -150,15 +164,82 @@ namespace CheckMails
 
         }
 
+        private bool IsBlackAddress(string mailAddress)
+        {
+            bool isBlack = false;
+
+            foreach (Address black in ListBlack)
+            {
+                if (mailAddress.ToLower().Contains(black.address.ToLower()) || mailAddress.ToLower().Equals(black.address.ToLower()))
+                {
+                    isBlack = true;
+                    break;
+                }
+            }
+
+            return isBlack;
+        }
+
+        private bool IsWhiteAddress(string mailAddress)
+        {
+            bool isWhite = false;
+
+            foreach (Address address in ListWhite)
+            {
+                if (mailAddress.ToLower().Contains(address.address.ToLower()) || mailAddress.ToLower().Equals(address.address.ToLower()))
+                {
+                    isWhite = true;
+                    break;
+                }
+            }
+
+            return isWhite;
+        }
+
+        private bool IsMorePeriod(DateTime messageDate)
+        {
+            bool isMore = false;
+
+            DateTime now = DateTime.Now;
+            TimeSpan mailPeriod = (now - messageDate);
+
+            if (mailPeriod.TotalDays > period)
+                isMore = true;            
+
+            return isMore;
+        }
+
         public void ManageMail()
         {
+            MessageHeader messageHeader;
+            string mailAddress;            
+
             foreach (MailBox mailbox in ListMailBox)
             {
-                Pop3Client client = new Pop3Client();
+                Pop3Client client = new Pop3Client();                
 
                 client.Connect(mailbox.hostname, mailbox.port, mailbox.usessl);
                 client.Authenticate(mailbox.address, mailbox.password);
-                Console.WriteLine("In mailbox {0}, Count letters = {1}", mailbox.address, client.GetMessageCount());
+
+                int countMail = client.GetMessageCount();
+                Console.WriteLine("In mailbox {0}, Count letters = {1}", mailbox.address, countMail);
+
+                int i = 1;
+                
+                while (i <= countMail)
+                {
+                    messageHeader = client.GetMessageHeaders(i);
+                    mailAddress = messageHeader.From.ToString();
+                    
+
+                    if (IsBlackAddress(mailAddress) || IsMorePeriod(messageHeader.DateSent))
+                    {                       
+                        client.DeleteMessage(i);
+                        Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
+                    }
+
+                    i++;
+                }
 
                 client.Disconnect();
                 client.Dispose();
