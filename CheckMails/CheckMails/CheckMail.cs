@@ -232,7 +232,7 @@ namespace CheckMails
                     mailAddress = messageHeader.From.ToString();
                     
 
-                    if (IsBlackAddress(mailAddress) || IsMorePeriod(messageHeader.DateSent))
+                    if ((IsBlackAddress(mailAddress) || IsMorePeriod(messageHeader.DateSent)) && !IsWhiteAddress(mailAddress))
                     {                       
                         client.DeleteMessage(i);
                         Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
