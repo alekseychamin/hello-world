@@ -59,14 +59,28 @@ namespace CheckMails
             {
                 if (xnode.Name == "uptime_h")
                 {
-                    uptime = Convert.ToInt32(xnode.InnerText);
-                    Console.WriteLine("uptime_h = {0}", xnode.InnerText);
+                    try
+                    {
+                        uptime = Convert.ToInt32(xnode.InnerText);
+                        Console.WriteLine("uptime_h = {0}", xnode.InnerText);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Неверный формат числа uptime_h!");
+                    }                    
                 }
 
                 if (xnode.Name == "period_d")
                 {
-                    period = Convert.ToInt32(xnode.InnerText);
-                    Console.WriteLine("period_d = {0}", xnode.InnerText);
+                    try
+                    {
+                        period = Convert.ToInt32(xnode.InnerText);
+                        Console.WriteLine("period_d = {0}", xnode.InnerText);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Неверный формат числа period_h!");
+                    }
                 }
 
                 if (xnode.Name == "listblack")
@@ -75,6 +89,8 @@ namespace CheckMails
                     {
                         if (childnode.Name == "blackaddress")
                         {
+                            BlackAddress blackaddress = new BlackAddress() { address = childnode.InnerText };
+                            ListBlack.Add(blackaddress);
                             Console.WriteLine("blackaddress = {0}", childnode.InnerText);
                         }
                     }
@@ -85,3 +101,4 @@ namespace CheckMails
         }
     }
 }
+;
