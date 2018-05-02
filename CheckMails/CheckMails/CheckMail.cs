@@ -216,10 +216,17 @@ namespace CheckMails
 
             foreach (MailBox mailbox in ListMailBox)
             {
-                Pop3Client client = new Pop3Client();                
+                Pop3Client client = new Pop3Client();
 
-                client.Connect(mailbox.hostname, mailbox.port, mailbox.usessl);
-                client.Authenticate(mailbox.address, mailbox.password);
+                try
+                {
+                    client.Connect(mailbox.hostname, mailbox.port, mailbox.usessl);
+                    client.Authenticate(mailbox.address, mailbox.password);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error in connection! " + ex.Message);
+                }
 
                 int countMail = client.GetMessageCount();
                 Console.WriteLine("In mailbox {0}, Count letters = {1}", mailbox.address, countMail);
