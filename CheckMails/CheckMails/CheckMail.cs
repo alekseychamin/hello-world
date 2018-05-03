@@ -196,15 +196,18 @@ namespace CheckMails
             return isWhite;
         }
 
-        private bool IsMorePeriod(DateTime messageDate)
+        private bool IsMorePeriod(DateTime messageDate, int hours = 0, int days = 0)
         {
             bool isMore = false;
 
             DateTime now = DateTime.Now;
             TimeSpan mailPeriod = (now - messageDate);
 
-            if (mailPeriod.TotalDays > period)
-                isMore = true;            
+            if ((mailPeriod.TotalDays > days) & (days != 0))
+                isMore = true;
+
+            if ((mailPeriod.TotalHours > hours) & (hours != 0))
+                isMore = true;
 
             return isMore;
         }
@@ -238,15 +241,17 @@ namespace CheckMails
                     messageHeader = client.GetMessageHeaders(i);
                     mailAddress = messageHeader.From.ToString();
                     
+                    if (IsBlackAddress(mailAddress) & IsMorePeriod(messageHeader.DateSent, hours: 1))
+                    {
+                        client.DeleteMessage(i);
+                    }
 
-                    if ((IsBlackAddress(mailAddress) || IsMorePeriod(messageHeader.DateSent)) && !IsWhiteAddress(mailAddress))
+                    if (IsMorePeriod(messageHeader.DateSent, days:period) && !IsWhiteAddress(mailAddress))
                     {                       
                         client.DeleteMessage(i);
                         //Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
                     }
-                    else
-                        //Console.WriteLine("N mail = {0}, from = {1}, date = {2}", i, mailAddress, messageHeader.DateSent.ToString());
-
+                    
                     i++;
                 }
 
