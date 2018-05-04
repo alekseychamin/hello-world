@@ -23,7 +23,7 @@ namespace Nybble
         
         public void SetValue(int value)
         {
-            Value = (int)(value & (0x0000000F));
+            Value = (int)(value & (0xF));
         }
 
         public int GetValue()
@@ -124,6 +124,8 @@ namespace Nybble
             Console.WriteLine("(int)c = (int){0} => {1}", c.GetValue(), d);
 
             Console.WriteLine("a > b = {0}", a > b);
+                        
+            Console.WriteLine("a = {0}, a += 5 =>", (a += 5).GetValue());
 
             Console.ReadLine();                       
         }
