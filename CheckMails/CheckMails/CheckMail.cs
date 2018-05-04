@@ -57,6 +57,10 @@ namespace CheckMails
 
         public void LoadConfig(string filename)
         {
+            ListBlack.Clear();
+            ListWhite.Clear();
+            ListMailBox.Clear();
+
             XmlDocument xDoc = new XmlDocument();
             xDoc.Load(filename);
             XmlElement xRoot = xDoc.DocumentElement; // получение корневого элемента - checkmails
