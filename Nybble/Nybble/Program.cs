@@ -52,6 +52,18 @@ namespace Nybble
             return result;
         }
 
+        public static explicit operator Nybble(int value)
+        {
+            Nybble result = new Nybble();
+            result.SetValue(value);
+            return result;
+        }
+
+        public static explicit operator int(Nybble ob)
+        {
+            return ob.Value;
+        }
+
     }
     class NybbleDemo
     {
@@ -65,6 +77,12 @@ namespace Nybble
             int d = 15;
             c = a + d;
             Console.WriteLine("a + d = {0} + {1} = {2}", a.GetValue(), d, c.GetValue());
+
+            c = (Nybble)d;
+            Console.WriteLine("(Nybble)d = (Nybble){0} => {1}", d, c.GetValue());
+
+            d = (int)c;
+            Console.WriteLine("(int)c = (int){0} => {1}", c.GetValue(), d);
 
             Console.ReadLine();                       
         }
