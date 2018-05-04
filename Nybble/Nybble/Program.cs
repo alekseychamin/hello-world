@@ -8,7 +8,7 @@ namespace Nybble
 {
     class Nybble
     {
-        public int Value;
+        int Value;
 
         public Nybble()
         {
@@ -18,22 +18,38 @@ namespace Nybble
         public Nybble(int value)
         {
             // ограничение на хранение данных 0-15
-            Value = (int) (value & (0x0000000F));
+            SetValue(value);
+        }
+        
+        public void SetValue(int value)
+        {
+            Value = (int)(value & (0x0000000F));
+        }
+
+        public int GetValue()
+        {
+            return Value;
         }
 
         public static Nybble operator +(Nybble ob1, Nybble ob2)
         {
-            return new Nybble { Value = ob1.Value + ob2.Value };
+            Nybble result = new Nybble();
+            result.SetValue(ob1.Value + ob2.Value);
+            return result;
         }
 
         public static Nybble operator +(int ob1, Nybble ob2)
         {
-            return new Nybble { Value = ob1 + ob2.Value };
+            Nybble result = new Nybble();
+            result.SetValue(ob1 + ob2.Value);
+            return result;
         }
 
         public static Nybble operator +(Nybble ob1, int ob2)
         {
-            return new Nybble { Value = ob1.Value + ob2 };
+            Nybble result = new Nybble();
+            result.SetValue(ob1.Value + ob2);
+            return result;
         }
 
     }
@@ -41,10 +57,14 @@ namespace Nybble
     {
         static void Main()
         {
-            Nybble a = new Nybble(15);
+            Nybble a = new Nybble(5);
             Nybble b = new Nybble(4);
             Nybble c = a + b;
-            Console.WriteLine("a + b = {0} + {1} = {2}", a.Value, b.Value, c.Value);
+            Console.WriteLine("a + b = {0} + {1} = {2}", a.GetValue(), b.GetValue(), c.GetValue());
+
+            int d = 15;
+            c = a + d;
+            Console.WriteLine("a + d = {0} + {1} = {2}", a.GetValue(), d, c.GetValue());
 
             Console.ReadLine();                       
         }
