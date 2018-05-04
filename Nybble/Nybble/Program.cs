@@ -71,6 +71,37 @@ namespace Nybble
             return result;
         }
 
+        public static bool operator >(Nybble ob1, Nybble ob2)
+        {
+            if (ob1.Value > ob2.Value)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool operator <(Nybble ob1, Nybble ob2)
+        {
+            if (ob1.Value < ob2.Value)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool operator ==(Nybble ob1, Nybble ob2)
+        {
+            if (ob1.Value == ob2.Value)
+                return true;
+            else
+                return false;              
+        }
+
+        public static bool operator !=(Nybble ob1, Nybble ob2)
+        {
+            if (ob1.Value != ob2.Value)
+                return true;
+            else
+                return false;
+        }
 
     }
     class NybbleDemo
@@ -91,6 +122,8 @@ namespace Nybble
 
             d = (int)c;
             Console.WriteLine("(int)c = (int){0} => {1}", c.GetValue(), d);
+
+            Console.WriteLine("a > b = {0}", a > b);
 
             Console.ReadLine();                       
         }
