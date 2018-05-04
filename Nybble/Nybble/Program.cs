@@ -64,6 +64,14 @@ namespace Nybble
             return ob.Value;
         }
 
+        public static Nybble operator ++(Nybble ob)
+        {
+            Nybble result = new Nybble();
+            result.SetValue(ob.Value + 1);
+            return result;
+        }
+
+
     }
     class NybbleDemo
     {
