@@ -236,7 +236,7 @@ namespace CheckMails
                 }
 
                 int countMail = client.GetMessageCount();
-                Console.WriteLine("In mailbox {0}, Count letters = {1}", mailbox.address, countMail);
+                Console.WriteLine("In mailbox {0}, Count letters = {1}, date = {2}", mailbox.address, countMail, DateTime.Now.ToString());
 
                 int i = 1;
                 
@@ -253,7 +253,7 @@ namespace CheckMails
                     if (IsMorePeriod(messageHeader.DateSent, days:period) && !IsWhiteAddress(mailAddress))
                     {                       
                         client.DeleteMessage(i);
-                        //Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
+                        Console.WriteLine("N mail = {0}, from = {1} - delete", i, mailAddress);
                     }
                     
                     i++;
